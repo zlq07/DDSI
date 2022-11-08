@@ -1,7 +1,6 @@
 ###############################################################################
-import pyodbc
+import oracledb
 from getpass import getpass
-from sys import stderr
 ###############################################################################
 
 # Imprime un menu con las opciones
@@ -17,14 +16,13 @@ def escoger_opcion() -> int:
     opc = 0
     while (opc < 1 or opc > 4):
         opc = int(input("Elija una opción: "))
-    return opc
+    return opc 
 
 ###############################################################################
 
 def main():
 
     # Datos del servidor
-    driver = '{Oracle in Instant Client Basic}'
     host = 'oracle0.ugr.es'
     port = '1521'
     database = 'practbd.oracle0.ugr.es'
@@ -33,14 +31,14 @@ def main():
     username: str = getpass("Usuario: ")
     password: str = getpass("Contraseña: ")
 
-    # Generamos el 'connection string'
-    # https://stackoverflow.com/questions/39778968/connect-to-oracle-database-using-pyodbc
-    token = f'Driver={driver};Server={host}:{port};Dbq={database};Uid={username};Pwd={password}'
-
     # Establecemos la conexión
     try:
         print("Conectando a la base de datos...")
-        conexion: pyodbc.Connection = pyodbc.connect(token)
+        conexion: oracledb.Connection = oracledb.connect(host=host,
+                                                         port=port,
+                                                         service_name=database,
+                                                         user=username,
+                                                         password=password)
     except:
         print('No se ha podido establecer conexión con la base de datos')
         exit()
@@ -48,7 +46,7 @@ def main():
         print('Conexión realizada correctamente')
 
     # Ahora podemos operar en la base de datos
-    cursor: pyodbc.Cursor = conexion.cursor()
+    cursor: oracledb.Cursor = conexion.cursor()
     menu()
     opc = None
     while (opc != 4):
@@ -67,9 +65,7 @@ def main():
                 # Cerramos conexión con la base de datos
                 print("Cerrando conexión...")
                 conexion.close()
-        if (opc != 4): print('Operación finalizada')
     
-
 ###############################################################################
 
 if __name__ == "__main__":
