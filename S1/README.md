@@ -24,3 +24,6 @@
 - Introducir el usuario y la contraseña por parámetros
   
     `$ py main.py <usuario> <contraseña>`
+    
+- Para actualiza
+git remote add upstream git@github.com:lu1smgb/DDSI.git
