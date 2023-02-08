@@ -1,6 +1,9 @@
 [S1]: https://github.com/lu1smgb/DDSI/tree/main/S1/
 [P1]: Practica1.pdf
-
+[P2]: Practica2.pdf
+[S2]: Seminario2.pdf
+[P3]: P3
+[T4]: trabajo_Tema4.pdf
 [GitHub-LMGB]: https://github.com/lu1smgb
 [GitHub-PIC]: https://github.com/PIrigoyen
 [GitHub-MASV]: https://github.com/migue-maca-IngInfo
