@@ -1,4 +1,5 @@
 [S1]: https://github.com/lu1smgb/DDSI/tree/main/S1/
+[P1]: Practica1.pdf
 
 [GitHub-LMGB]: https://github.com/lu1smgb
 [GitHub-PIC]: https://github.com/PIrigoyen
